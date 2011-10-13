@@ -6,14 +6,23 @@
 
 	<script src="js/prototype.1.6.js" type="text/javascript"></script>
 	<script src="js/tiny-color-chooser.js" type="text/javascript"></script>
-    <link href="css/tiny-color-chooser.css" rel="stylesheet" type="text/css" />
+        <link href="css/tiny-color-chooser.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
+<form>
+    <input id="color_chooser_1" type="hidden" value="faa" />
+    <input id="color_chooser_2" type="hidden" value="afa" />
+    <input id="color_chooser_3" type="hidden" value="aaf"/>
+    <input id="color_chooser_4" type="hidden"/>
+</form>
 
-
-<script>
-	
+<script type="text/javascript">
+    
+	new TinyColorChooser("color_chooser_1", {selected_color:"faa"});
+        new TinyColorChooser("color_chooser_2", {selected_color:"afa"});
+        new TinyColorChooser("color_chooser_3", {selected_color:"aaf"});
+        new TinyColorChooser("color_chooser_4", {selected_color:"aaf"});
 </script>
 
 </body>

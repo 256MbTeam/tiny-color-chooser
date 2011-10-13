@@ -1,5 +1,26 @@
-.color-chooser{
-	width:16px;
-	height:16px;
-	border:1px solid #333;
+.color-chooser-popup{
+    border:1px solid #777;
+    border-radius: 5px;
+    padding: 2px;
+    position: absolute;
+    display: inline-block;
+    background: #fff;
+}
+
+.color-chooser-element{
+    width:16px;
+    height:16px;
+    border:1px solid #777;
+    border-radius: 5px;
+    margin: 2px;
+    display: inline-block;
+}
+
+.color-chooser-preview{
+    width:16px;
+    height:16px;
+    border:1px solid #777;
+    border-radius: 5px;
+    margin: 2px;
+    display: inline-block;
 }
