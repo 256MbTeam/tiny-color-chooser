@@ -4,14 +4,15 @@ The component is based on the JavaScript library [Prototype](http://www.prototyp
 
 ##Example Use
 -------
-<input id="color_chooser_2" type="hidden"/>
-<script type="text/javascript">
-    new TinyColorChooser("color_chooser_2", {
+
+    <input id="color_chooser_2" type="hidden"/>
+    <script type="text/javascript">
+        new TinyColorChooser("color_chooser_2", {
         colors: ["AAA","BBB","CCC","DDD","FFF"],
         default_color: "BBB",
         popup_height: 26
-    });
-</script>
+        });
+    </script>
 
 ##Supported Properties
 -------
