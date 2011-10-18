@@ -4,10 +4,10 @@ var TinyColorChooser = Class.create({
             element_classname: "color-chooser-element",
             popup_classname: "color-chooser-popup",
             preview_classname: 'color-chooser-preview',
-            default_color: "daf",
-            popup_width: "102px",
+            default_color: "fff",
+            popup_width: "82px",
             popup_height: "41px",
-            colors: ["faa","fdd","fee","aaf","afa","faa","aff","ffa","faf"]
+            colors: ["fff", "aaa", "faa","ffa","faf","afa","aff", "aaf"]
         }, options);
         
         
