@@ -1,6 +1,5 @@
 var TinyColorChooser = Class.create({
     initialize:function(input_id, options){
-        var input_field = $(input_id);
         this.options = Object.extend({
             element_classname: "color-chooser-element",
             popup_classname: "color-chooser-popup",
@@ -9,60 +8,68 @@ var TinyColorChooser = Class.create({
             popup_width: "102px",
             popup_height: "41px",
             colors: ["faa","fdd","fee","aaf","afa","faa","aff","ffa","faf"]
-        },
-        options);
-        this.createColorChooserDiv(input_field)
-    },
-    createColorChooserDiv: function(input_field){
-        var preview = new Element('div');
+        }, options);
         
-        preview.addClassName(this.options.preview_classname);
-        preview.style.background = "#"+(input_field.value || this.options.default_color);
         
-        preview.input_field = input_field;
+        var input_filed = $(input_id);
+   
+        input_filed.value = input_filed.value || this.options.default_color
+        var preview = this.createPreview(input_filed, this.options);
         
-        preview.chooser = this.createPopup(this.options['colors'], preview, this.options);
-        preview.selected_color = this.options['selected_color'];
+        var chooser = this.createPopup(input_filed, preview, this.options);
         
-        var parent = input_field.parentNode;
-        parent.appendChild(preview);
-        parent.appendChild(preview.chooser);
         document.observe("click", function(event){
             if(preview != event.srcElement){
-                preview.chooser.hide(); 
+                if(chooser.visible()){
+                    chooser.hide();
+                }
             }else
             {
-                preview.chooser.toggle();      
+                chooser.toggle();      
             }
             return;
         });
+        
+        var parent = input_filed.parentNode;
+        parent.appendChild(preview);
+        parent.appendChild(chooser);
     },
-    createPopup: function(colors, preview, options){
-        var popup = new Element('div');
-        popup.addClassName(options.popup_classname);
+    setValue: function(value) {
+
+        this.input_field.value = this.value;
+    },
+    createPreview: function(input_field, options){
+        var preview = new Element('div', {
+            'class': this.options.preview_classname
+        });
+        preview.setStyle({
+            background: "#"+(input_field.value)
+        });
+        return preview;      
+    },
+    createPopup: function(input_filed, preview, options){
+        var popup = new Element('div',{
+            'class': options.popup_classname
+        });
         popup.setStyle({
             display: 'none',
             width: options["popup_width"],
             height: options["popup_height"]
         });
         
-        colors.each(function(color){
-            var color_field = document.createElement('div');
-            color_field.addClassName(options.element_classname);
-            color_field.setStyle({
-                'background': "#"+color
+        options.colors.each(function(color){
+            var color_field = new Element('div',{
+                'class': options.element_classname
             });
-            
-            color_field.color = color;
-            color_field.onclick = function(){
+            color_field.setStyle({
+                background: "#"+color
+            });
+            color_field.observe("click", function(event){
                 preview.setStyle({
-                    'background-color': "#"+this.color
+                    background: "#"+color
                 });
-                popup.setStyle({
-                    display: 'none'
-                });
-                preview.input_field.value = this.color;
-            }
+                input_filed.value = color;
+            });
             popup.appendChild(color_field);
         });
         return popup;

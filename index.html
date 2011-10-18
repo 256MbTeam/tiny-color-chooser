@@ -1,29 +1,97 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
-<head>
-	<title>Tiny Color Chooser built on Prototype</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <head>
+        <title>Tiny Color Chooser built on Prototype</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-	<script src="js/prototype.1.6.js" type="text/javascript"></script>
-	<script src="js/tiny-color-chooser.js" type="text/javascript"></script>
+        <script src="js/prototype.1.6.js" type="text/javascript"></script>
+        <script src="js/tiny-color-chooser.js" type="text/javascript"></script>
         <link href="css/tiny-color-chooser.css" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+            pre {
+                background: #DDD;
+                border: 1px solid #AAA;
+                width: 800px;
+                padding: 10px;
+                text-align: left;
+                overflow: auto
+            }
+        </style>
+    </head>
+    <body>
+        <!--        <div class="center">-->
+        <h1>Tiny Color Chooser Usage</h1>
+        <div>
+            Color chooser with default settings
+            <br/><input id="color_chooser_1" type="hidden"/>
 
-</head>
-<body>
-<form>
-    <input id="color_chooser_1" type="hidden" value="faa" />
-    <input id="color_chooser_2" type="hidden" value="afa" />
-    <input id="color_chooser_3" type="hidden" value="aaf"/>
-    <input id="color_chooser_4" type="hidden"/>
-</form>
+            <script type="text/javascript">
+                new TinyColorChooser("color_chooser_1");
+            </script>
+            <pre>new TinyColorChooser("color_chooser_1");</pre>
+        </div>
 
-<script type="text/javascript">
+        <div>
+            You can setup your own scope of colors
+            <br/><input id="color_chooser_2" type="hidden"/>
+
+            <script type="text/javascript">
+                new TinyColorChooser("color_chooser_2", {
+                    colors: ["AAA","BBB","CCC","DDD","FFF"],
+                    default_color: "BBB",
+                    popup_height: 26
+                });
+            </script>
+            <pre>new TinyColorChooser("color_chooser_2", {
+                    colors: ["AAA","BBB","CCC","DDD","FFF"],
+                    default_color: "BBB",
+                    popup_height: 26
+                });</pre>
+        </div>        
+
+        <div>
+            <h3>Avaliable options for Tiny Color Chooser</h3>
+            <table style="border-spacing: 12px;">
+                <tr>
+                    <th>Option</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>colors</td>
+                    <td>Array of avaliable colors</td>
+                </tr>
+                <tr>
+                    <td>default_color</td>
+                    <td>Color, that be setted by defaults</td>
+                </tr>
+                <tr>
+                    <td>popup_width</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>popup_height</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>element_classname</td>
+                    <td></td>
+                </tr>                
+                <tr>
+                    <td>popup_classname</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>preview_classname</td>
+                    <td></td>
+                </tr>                
+
+            </table>
+        </div>
+        <!--        </div>-->
+        <script type="text/javascript">
     
-	new TinyColorChooser("color_chooser_1", {selected_color:"faa"});
-        new TinyColorChooser("color_chooser_2", {selected_color:"afa"});
-        new TinyColorChooser("color_chooser_3", {selected_color:"aaf"});
-        new TinyColorChooser("color_chooser_4", {selected_color:"aaf"});
-</script>
+            
+        </script>
 
-</body>
+    </body>
 </html>
