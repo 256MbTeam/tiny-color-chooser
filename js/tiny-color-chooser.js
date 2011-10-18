@@ -5,8 +5,8 @@ var TinyColorChooser = Class.create({
             popup_classname: "color-chooser-popup",
             preview_classname: 'color-chooser-preview',
             default_color: "fff",
-            popup_width: "82px",
-            popup_height: "41px",
+            popup_width: "88px",
+            popup_height: "43px",
             colors: ["fff", "aaa", "faa","ffa","faf","afa","aff", "aaf"]
         }, options);
         
@@ -18,8 +18,10 @@ var TinyColorChooser = Class.create({
         
         var chooser = this.createPopup(input_filed, preview, this.options);
         
-        document.observe("click", function(event){
-            if(preview != event.srcElement){
+        $(document).observe("click", function(event){
+     
+            if(preview != event.target){
+                
                 if(chooser.visible()){
                     chooser.hide();
                 }
