@@ -15,7 +15,7 @@ The component is based on the JavaScript library [Prototype](http://www.prototyp
         });
     </script>
 
-If you are using Ruby On Rails, you can define helper method
+If you are using [Ruby On Rails](https://github.com/rails/rails), you can define helper method
     
     def select_color_tag(name, value=nil, options={})
         out = hidden_field_tag(name, value, options)
