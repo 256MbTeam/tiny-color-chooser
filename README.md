@@ -32,6 +32,8 @@ and use it in your erb
 ##Supported Properties
 `colors`, `default_color`, `popup_width`, `popup_height`, `element_classname`, `popup_classname`, `preview_classname`
 
+## License
 
+[GNU General Public License v2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
 
